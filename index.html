@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Photographe de mariage — Portfolio</title>
+  <meta name="description" content="Photographe de mariage — reportage, portraits, détails. Capturer l'émotion du jour J.">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#f97316; /* orange */
+      --bg:#ffffff;
+      --muted:#6b7280;
+      --max-width:1100px;
+      --radius:12px;
+      --card-shadow: 0 8px 24px rgba(15,23,42,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#fff 0%,#fbfbfb 100%);color:#0f172a;line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#fb923c);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:18px;text-decoration:none;color:inherit;font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center;margin:28px 0}
+    .hero-left h1{font-size:clamp(28px,4vw,44px);margin:0 0 12px}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .services{display:flex;gap:10px;flex-wrap:wrap}
+    .service{background:#fff;padding:12px 14px;border-radius:10px;box-shadow:var(--card-shadow);font-weight:600}
+    .hero-right{border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);height:320px}
+    .hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Portfolio */
+    .section{margin:48px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .grid img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+
+    /* About */
+    .about{display:flex;gap:20px;align-items:center}
+    .about img{width:240px;height:240px;object-fit:cover;border-radius:14px;box-shadow:var(--card-shadow)}
+    .about p{color:var(--muted);margin:0}
+
+    /* Footer */
+    footer{margin-top:48px;border-top:1px solid #eee;padding:22px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+    .socials a{margin-left:12px;text-decoration:none;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr;}
+      .hero-right{height:260px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .about{flex-direction:column}
+      .about img{width:100%;height:320px}
+    }
+    @media (max-width:520px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">O</div>
+        <div>
+          <div style="font-weight:700">Rstud — Photographe</div>
+          <div style="font-size:12px;color:var(--muted)">Mariages • Portraits • Reportage</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Capturer les instants qui deviennent souvenirs</h1>
+          <p>Reportages naturels, portraits sensibles et détails choisis. Je privilégie les émotions vraies et la lumière naturelle.</p>
+          <div class="services">
+            <div class="service">Reportage journée complète</div>
+            <div class="service">Séance engagement</div>
+          </div>
+        </div>
+        <div class="hero-right" aria-hidden="true">
+          <!-- Remplacez l'URL ci-dessous par votre photo de couverture (format large) -->
+          <img src="images/mariée avec ses témoins à espalion.webp" alt="Couple marié"/>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section">
+        <h2>Portfolio</h2>
+        <div class="grid" aria-hidden="false">
+          <!-- Remplacez ces images par vos photos (optimisées) -->
+          <img src="images/regard amoureux a espalion.webp" alt="photo 1">
+          <img src="images/bouquet.webp" alt="photo 2">
+          <img src="images/tata et neveu a millau.webp" alt="photo 3">
+          <img src="images/dragée.webp" alt="photo 4">
+          <img src="images/fille ete papa.webp" alt="photo 5">
+          <img src="images/marieé nb.webp" alt="photo 6">
+        </div>
+      </section>
+
+      <section id="a-propos" class="section">
+        <h2>À propos</h2>
+        <div class="about">
+          <!-- PHOTO PERSONNELLE : remplacez l'URL ci-dessous par la photo que vous souhaitez afficher dans la section À propos -->
+          <img src="images/rstud viviez.webp" alt="Portrait photographe">
+          <div>
+            <p>Bonjour, je m'appelle Peters. Photographe de mariage intimiste basé à Viviez en Aveyron Occitanie depuis plus de dix ans, 
+              j’ai découvert ma passion aux côtés d’amis eux-mêmes passionnés, en capturant d’abord les instants festifs de mes proches. Aujourd’hui, 
+              je mets un point d’honneur à photographier des moments authentiques, spontanés, où chacun peut rester soi-même.
+               Les photos trop posées ne sont pas dans mon style, je préfère la sincérité d’un regard ou d’un geste pris sur le vif. 
+               Je m’adapte à la sensibilité de chacun, que ce soit par le tutoiement ou le vouvoiement, dans une ambiance toujours détendue et bienveillante.
+                Photographe de mariage j’ai une préférence pour les mariages intimistes,
+                où la simplicité et l’émotion prennent le pas sur le reste. 
+              Je serai heureux de faire votre connaissance et de raconter votre histoire en images. .</p>
+            <p style="margin-top:8px;color:var(--muted)">Basé en France. Disponible pour déplacements nationaux et internationaux.</p>
+            
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Demande de disponibilité</h2>
+        <p style="color:var(--muted)">Remplissez le formulaire ci-dessous pour me contacter — je réponds en 48h maximum.</p>
+
+        <!-- FOOTER / EMBED GOOGLE FORM -->
+        <!-- Remplacez "VOTRE_GOOGLE_FORM_URL" par l'URL d'intégration que Google Forms vous fournit (iframe src). -->
+        <div style="margin-top:16px;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHbjWqSEiMWKBhfhdbVyMI2s_0rcBR9fb31nVppUvgRjN3XQ/viewform?usp=header" title="Formulaire de contact" style="width:100%;height:640px;border:0;" loading="lazy"></iframe>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <div>
+        © <span id="year"></span> Rstud — Photographe de mariage
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="socials">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Ajoute l'année courante
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Petit conseil : remplacez les URLs d'images avec vos fichiers optimisés (webp si possible) et
+    // remplacez "VOTRE_GOOGLE_FORM_URL" par l'URL d'intégration iframe fournie par Google Forms.
+  </script>
+</body>
+</html>
