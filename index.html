@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#f97316; /* orange */
+      --accent:#f97316;
       --bg:#ffffff;
       --muted:#6b7280;
       --max-width:1100px;
@@ -19,7 +19,11 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#fff 0%,#fbfbfb 100%);color:#0f172a;line-height:1.45;
+      margin:0;
+      font-family:Inter,system-ui,Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#fff 0%,#fbfbfb 100%);
+      color:#0f172a;
+      line-height:1.45;
       -webkit-font-smoothing:antialiased;
     }
     .container{max-width:var(--max-width);margin:0 auto;padding:28px}
@@ -43,12 +47,74 @@
     /* Portfolio */
     .section{margin:48px 0}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .grid img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+    .grid img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:10px;
+      cursor:pointer;
+      transition:transform 0.2s;
+    }
+    .grid img:hover{transform:scale(1.02)}
 
     /* About */
     .about{display:flex;gap:20px;align-items:center}
     .about img{width:240px;height:240px;object-fit:cover;border-radius:14px;box-shadow:var(--card-shadow)}
     .about p{color:var(--muted);margin:0}
+
+    /* Lightbox */
+    .lightbox{
+      display:none;
+      position:fixed;
+      z-index:999;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.92);
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .lightbox.active{display:flex}
+    .lightbox-content{
+      position:relative;
+      max-width:90%;
+      max-height:90%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lightbox-content img{
+      max-width:100%;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:8px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    }
+    .lightbox-close{
+      position:absolute;
+      top:-50px;
+      right:0;
+      background:white;
+      border:none;
+      color:#0f172a;
+      font-size:28px;
+      cursor:pointer;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:transform 0.2s,background 0.2s;
+      font-weight:300;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    }
+    .lightbox-close:hover{
+      transform:scale(1.1);
+      background:#f1f5f9;
+    }
 
     /* Footer */
     footer{margin-top:48px;border-top:1px solid #eee;padding:22px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
@@ -61,9 +127,11 @@
       .grid{grid-template-columns:repeat(2,1fr)}
       .about{flex-direction:column}
       .about img{width:100%;height:320px}
+      .lightbox-close{top:-45px;width:40px;height:40px;font-size:24px}
     }
     @media (max-width:520px){
       .grid{grid-template-columns:1fr}
+      .lightbox-close{top:-40px;width:36px;height:36px;font-size:22px}
     }
   </style>
 </head>
@@ -88,14 +156,13 @@
       <section class="hero">
         <div class="hero-left">
           <h1>Capturer les instants qui deviennent souvenirs</h1>
-          <p>Reportages naturels, portraits sensibles et détails choisis. Je privilégie les émotions vraies et la lumière naturelle.</p>
+          <p>Reportages naturels, portraits sensibles et détails choisis. Je privilégie les émotions vraies.</p>
           <div class="services">
             <div class="service">Reportage journée complète</div>
             <div class="service">Séance engagement</div>
           </div>
         </div>
         <div class="hero-right" aria-hidden="true">
-          <!-- Remplacez l'URL ci-dessous par votre photo de couverture (format large) -->
           <img src="images/mariée avec ses témoins à espalion.webp" alt="Couple marié"/>
         </div>
       </section>
@@ -103,7 +170,6 @@
       <section id="portfolio" class="section">
         <h2>Portfolio</h2>
         <div class="grid" aria-hidden="false">
-          <!-- Remplacez ces images par vos photos (optimisées) -->
           <img src="images/regard amoureux a espalion.webp" alt="photo 1">
           <img src="images/bouquet.webp" alt="photo 2">
           <img src="images/tata et neveu a millau.webp" alt="photo 3">
@@ -119,18 +185,17 @@
       <section id="a-propos" class="section">
         <h2>À propos</h2>
         <div class="about">
-          <!-- PHOTO PERSONNELLE : remplacez l'URL ci-dessous par la photo que vous souhaitez afficher dans la section À propos -->
           <img src="images/rstud viviez.webp" alt="Portrait photographe">
           <div>
             <p>Bonjour, je m'appelle Peters. Photographe de mariage intimiste basé à Viviez en Aveyron Occitanie depuis plus de dix ans, 
-              j’ai découvert ma passion aux côtés d’amis eux-mêmes passionnés, en capturant d’abord les instants festifs de mes proches. Aujourd’hui, 
-              je mets un point d’honneur à photographier des moments authentiques, spontanés, où chacun peut rester soi-même.
-               Les photos trop posées ne sont pas dans mon style, je préfère la sincérité d’un regard ou d’un geste pris sur le vif. 
-               Je m’adapte à la sensibilité de chacun, que ce soit par le tutoiement ou le vouvoiement, dans une ambiance toujours détendue et bienveillante.
-                Photographe de mariage j’ai une préférence pour les mariages intimistes,
-                où la simplicité et l’émotion prennent le pas sur le reste. 
+              j'ai découvert ma passion aux côtés d'amis eux-mêmes passionnés, en capturant d'abord les instants festifs de mes proches. Aujourd'hui, 
+              je mets un point d'honneur à photographier des moments authentiques, spontanés, où chacun peut rester soi-même.
+               Les photos trop posées ne sont pas dans mon style, je préfère la sincérité d'un regard ou d'un geste pris sur le vif. 
+               Je m'adapte à la sensibilité de chacun, que ce soit par le tutoiement ou le vouvoiement, dans une ambiance toujours détendue et bienveillante.
+                Photographe de mariage j'ai une préférence pour les mariages intimistes,
+                où la simplicité et l'émotion prennent le pas sur le reste. 
               Je serai heureux de faire votre connaissance et de raconter votre histoire en images. .</p>
-            <p style="margin-top:8px;color:var(--muted)">Basé en France. Disponible pour déplacements nationaux et internationaux.</p>
+            <p style="margin-top:8px;color:black">Basé en Aveyron, France.</p>
             <a href="mailto:r.studphotographe@gmail.com">Ecrivez moi à r.studphotographe@gmail.com</a>
           </div>
         </div>
@@ -140,14 +205,10 @@
         <h2>Demande de disponibilité</h2>
         <p style="color:var(--muted)">Remplissez le formulaire ci-dessous pour me contacter — je réponds en 48h maximum.</p>
 
-        <!-- FOOTER / EMBED GOOGLE FORM -->
-        <!-- Remplacez "VOTRE_GOOGLE_FORM_URL" par l'URL d'intégration que Google Forms vous fournit (iframe src). -->
         <div style="margin-top:16px;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)">
           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHbjWqSEiMWKBhfhdbVyMI2s_0rcBR9fb31nVppUvgRjN3XQ/viewform?usp=header" title="Formulaire de contact" style="width:100%;height:640px;border:0;" loading="lazy"></iframe>
         </div>
-
       </section>
-
     </main>
 
     <footer>
@@ -163,12 +224,55 @@
     </footer>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Fermer">&times;</button>
+      <img id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
   <script>
-    // Ajoute l'année courante
+    // Année courante
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Petit conseil : remplacez les URLs d'images avec vos fichiers optimisés (webp si possible) et
-    // remplacez "VOTRE_GOOGLE_FORM_URL" par l'URL d'intégration iframe fournie par Google Forms.
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const portfolioImages = document.querySelectorAll('.grid img');
+
+    // Ouvrir lightbox au clic sur une image
+    portfolioImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Fermer avec le bouton X
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Fermer en cliquant en dehors de l'image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Fermer avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   </script>
 </body>
 </html>
