@@ -57,6 +57,25 @@
     }
     .grid img:hover{transform:scale(1.02)}
 
+    /* Prestations */
+    .prestations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+    .prestation-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);transition:transform 0.3s,box-shadow 0.3s;position:relative}
+    .prestation-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(15,23,42,0.12)}
+    .prestation-card.featured{border:2px solid var(--accent)}
+    .badge{position:absolute;top:16px;right:16px;background:var(--accent);color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700;z-index:10}
+    .prestation-image{height:220px;overflow:hidden}
+    .prestation-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+    .prestation-card:hover .prestation-image img{transform:scale(1.05)}
+    .prestation-content{padding:24px}
+    .prestation-content h3{margin:0 0 6px;font-size:24px;color:#0f172a}
+    .prestation-subtitle{color:var(--muted);margin:0 0 16px;font-size:14px}
+    .prestation-list{list-style:none;padding:0;margin:0 0 20px}
+    .prestation-list li{padding:8px 0;border-bottom:1px solid #f1f5f9;color:#475569;font-size:14px}
+    .prestation-list li:last-child{border-bottom:none}
+    .prestation-list li strong{color:#0f172a;font-weight:700}
+    .prestation-btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;transition:background 0.2s}
+    .prestation-btn:hover{background:#ea580c}
+
     /* About */
     .about{display:flex;gap:20px;align-items:center}
     .about img{width:240px;height:240px;object-fit:cover;border-radius:14px;box-shadow:var(--card-shadow)}
@@ -125,6 +144,7 @@
       .hero{grid-template-columns:1fr;}
       .hero-right{height:260px}
       .grid{grid-template-columns:repeat(2,1fr)}
+      .prestations-grid{grid-template-columns:1fr}
       .about{flex-direction:column}
       .about img{width:100%;height:320px}
       .lightbox-close{top:-45px;width:40px;height:40px;font-size:24px}
@@ -147,8 +167,9 @@
       </div>
       <nav>
         <a href="#portfolio">Portfolio</a>
+        <a href="#prestations">Prestations</a>
         <a href="#a-propos">À propos</a>
-        <a href="#contact" class="cta">Contact</a>
+        <a href="mailto:r.studphotographe@gmail.com" class="cta">Contact</a>
       </nav>
     </header>
 
@@ -182,6 +203,77 @@
         </div>
       </section>
 
+      <section id="prestations" class="section">
+        <h2>Mes Prestations</h2>
+        <p style="color:var(--muted);margin-bottom:32px">Trois formules adaptées à vos besoins, de l'essentiel au reportage complet</p>
+        
+        <div class="prestations-grid">
+          <!-- Goyage -->
+          <div class="prestation-card">
+            <div class="prestation-image">
+              <img src="images/mariés presta 1.jpg" alt="Cérémonie de mariage">
+            </div>
+            <div class="prestation-content">
+              <h3>Goyage</h3>
+              <p class="prestation-subtitle">L'essentiel pour votre cérémonie</p>
+              <ul class="prestation-list">
+                <li>Photos cérémonie</li>
+                <li>Photos des mariés</li>
+                <li>Photos de groupe</li>
+                <li>Galerie en ligne</li>
+                <li><strong>~3 heures de présence</strong></li>
+              </ul>
+              <a href="mailto:r.studphotographe@gmail.com" class="prestation-btn">Me contacter</a>
+            </div>
+          </div>
+
+          <!-- Corossol -->
+          <div class="prestation-card featured">
+            <div class="badge">Populaire</div>
+            <div class="prestation-image">
+              <img src="images/mariés presta 2.jpg" alt="Préparatifs des mariés">
+            </div>
+            <div class="prestation-content">
+              <h3>Corossol</h3>
+              <p class="prestation-subtitle">Reportage complet de votre journée</p>
+              <ul class="prestation-list">
+                <li>Préparation des mariés</li>
+                <li>Photos cérémonie</li>
+                <li>Photos des mariés</li>
+                <li>Photos de groupe</li>
+                <li>Galerie en ligne</li>
+                <li><strong>~8 heures de présence</strong></li>
+              </ul>
+              <a href="mailto:r.studphotographe@gmail.com" class="prestation-btn">Me contacter</a>
+            </div>
+          </div>
+
+          <!-- Tamarin -->
+          <div class="prestation-card">
+            <div class="prestation-image">
+              <img src="images/mariés presta 3.jpg" alt="Couple de mariés">
+            </div>
+            <div class="prestation-content">
+              <h3>Tamarin</h3>
+              <p class="prestation-subtitle">L'expérience complète</p>
+              <ul class="prestation-list">
+                <li>Séance engagement</li>
+                <li>Préparation des mariés</li>
+                <li>Photos cérémonie</li>
+                <li>Photos des mariés</li>
+                <li>Photos de groupe</li>
+                <li>Vin d'honneur</li>
+                <li>Photos de la soirée</li>
+                <li>Coupure du gâteau</li>
+                <li>Galerie en ligne</li>
+                <li><strong>~ de 10 heures de présence</strong></li>
+              </ul>
+              <a href="mailto:r.studphotographe@gmail.com" class="prestation-btn">Me contacter</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="a-propos" class="section">
         <h2>À propos</h2>
         <div class="about">
@@ -194,19 +286,10 @@
                Je m'adapte à la sensibilité de chacun, que ce soit par le tutoiement ou le vouvoiement, dans une ambiance toujours détendue et bienveillante.
                 Photographe de mariage j'ai une préférence pour les mariages intimistes,
                 où la simplicité et l'émotion prennent le pas sur le reste. 
-              Je serai heureux de faire votre connaissance et de raconter votre histoire en images. .</p>
+              Je serai heureux de faire votre connaissance et de raconter votre histoire en images.</p>
             <p style="margin-top:8px;color:black">Basé en Aveyron, France.</p>
-            <a href="mailto:r.studphotographe@gmail.com">Ecrivez moi à r.studphotographe@gmail.com</a>
+            <a href="mailto:r.studphotographe@gmail.com">Écrivez-moi à r.studphotographe@gmail.com</a>
           </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <h2>Demande de disponibilité</h2>
-        <p style="color:var(--muted)">Remplissez le formulaire ci-dessous pour me contacter — je réponds en 48h maximum.</p>
-
-        <div style="margin-top:16px;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHbjWqSEiMWKBhfhdbVyMI2s_0rcBR9fb31nVppUvgRjN3XQ/viewform?usp=header" title="Formulaire de contact" style="width:100%;height:640px;border:0;" loading="lazy"></iframe>
         </div>
       </section>
     </main>
